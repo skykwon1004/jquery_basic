@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click 04 : tab메뉴 display: none & block 사용</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <style>
+        .con>li {
+            display: none;
+        }
+
+        .con>li.on {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="tab">
+        <ul class="menu">
+            <li class="on"><button>menu01</button></li>
+            <li><button>menu02</button></li>
+            <li><button>menu03</button></li>
+        </ul>
+        <ul class="con">
+            <li class="on">01 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, delectus?</li>
+            <li>02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, delectus?</li>
+            <li>03 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, delectus?</li>
+        </ul>
+    </section>
+
+    <script>
+        $(function () {
+
+            $('.menu>li').on('click', function () {
+                console.log($(this).index()); 
+                // 0,1,2
+                // index - 번호를 찍어라
+                var idx = $(this).index();
+                $('.con>li').removeClass('on');
+                $('.con>li').eq(idx).addClass('on')
+                // eq = 몇번째놈 nth-child
+            })
+
+        })
+    </script>
+</body>
+
+</html>

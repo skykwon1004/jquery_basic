@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click 01</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <style>
+        body {
+            font-size: 50px;
+        }
+
+        ul>li {
+            display: inline-block;
+        }
+
+        .a {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><button class="btn01">show</button></li>
+        <li><button class="btn02">hide</button></li>
+        <li><button class="btn03">fadeIn</button></li>
+        <li><button class="btn04">fadeOut</button></li>
+        <li><button class="btn05">slideDown</button></li>
+        <li><button class="btn06">slideUp</button></li>
+        <li><button class="btn07">slideToggle</button></li>
+        <li><button class="btn08">toggle</button></li>
+    </ul>
+
+    <div class="a">
+        a입니다
+    </div>
+
+    <script>
+        $(function () {
+            $('.btn01').on('click', function () {
+                $('.a').show();
+            })
+
+
+            $('.btn02').on('click', function () {
+                $('.a').hide();
+            })
+
+            $('.btn03').on('click', function () {
+                $('.a').fadeIn();
+            })
+
+            $('.btn04').on('click', function () {
+                $('.a').fadeOut(2000);
+                // 2000은 2초 / 기본이 400값임
+            })
+
+            $('.btn05').on('click', function () {
+                $('.a').slideDown();
+            })
+
+            $('.btn06').on('click', function () {
+                $('.a').slideUp();
+            })
+
+            $('.btn07').on('click', function () {
+                $('.a').slideToggle();
+            })
+
+            $('.btn08').on('click', function () {
+                $('.a').toggle();
+            })
+        })
+    </script>
+</body>
+
+</html>

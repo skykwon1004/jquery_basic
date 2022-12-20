@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <style>
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 20px;
+        }
+
+        section:nth-child(2) {
+            background: #f7f7f7;
+        }
+
+        .content {
+            position: relative;
+        }
+
+        .content h2 {
+            opacity: 0;
+            transform: translate(0, 200px);
+        }
+
+        .content.on h2 {
+            transform: translate(0, 0);
+            opacity: 1;
+            transition: 1s 1S;
+        }
+
+        .content .otb {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            width: 200px;
+            height: 80px;
+            background: tomato;
+        }
+
+        .content.on .otb {
+            animation: otb 2s both;
+        } 
+
+        @keyframes otb {
+    
+            to {
+                right: 50%;
+            }
+    
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <h2>main</h2>
+    </section>
+
+    <section class="content">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <div class="otb"></div>
+    </section> 
+
+    <script>
+        $(function () {
+
+            var conP = $('.content').offset().top;
+            // console.log(conP);
+
+            $(window).on('scroll', function () {
+                var sct = $(window).scrollTop();
+                console.log(sct, conP);
+                if(sct > conP - 300 ) {
+                    $('.content').addClass('on') 
+                } else {
+                    $('.content').removeClass('on')
+                }
+            })
+
+        })
+    </script>
+</body>
+
+</html>

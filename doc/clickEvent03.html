@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click 03 : family link Toggle 이벤트 this 이해</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <style>
+        .footer {
+            margin: 500px 0;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .footer .inner {
+            display: flex;
+            justify-content: flex-end;
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer .fl {
+            position: relative;
+        }
+
+        .footer .fl .btn {
+            line-height: 40px;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+            padding: 0 30px;
+        }
+
+        .footer .fl .btn i {
+            margin: 0 0 0 15px;
+            color: tomato;
+        }
+
+        .footer .fl .btn.on i {
+            transform: rotate(180deg);
+        }
+
+        .footer .fl ul {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: #fff;
+
+            display: none;
+            height: 150px;
+            overflow-y: auto;
+        }
+
+        .footer .fl ul a {
+            display: block;
+            padding: 10px 30px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="footer">
+        <div class="inner">
+
+            <div class="fl">
+                <ul>
+                    <li><a href="">menu01</a></li>
+                    <li><a href="">menu02</a></li>
+                    <li><a href="">menu03</a></li>
+                    <li><a href="">menu04</a></li>
+                    <li><a href="">menu05</a></li>
+                </ul>
+                <div class="btn">
+                    family link <i class="xi-angle-up"></i>
+                </div>
+            </div>
+
+            <div class="fl">
+                <ul>
+                    <li><a href="">menu01</a></li>
+                    <li><a href="">menu02</a></li>
+                    <li><a href="">menu03</a></li>
+                    <li><a href="">menu04</a></li>
+                    <li><a href="">menu05</a></li>
+                </ul>
+                <div class="btn">
+                    family link <i class="xi-angle-up"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+
+            $('.fl .btn').on('click', function () {
+                // $('.fl ul').slideToggle();
+                $(this).toggleClass('on');
+                // $(this) : 내가 클릭한 것 (하나)
+                $(this).prev().slideToggle();
+                // $(this).prev() : 내가 클릭한 것 전에꺼 (ul이 두개니깐 this안하면 ul 두개 다 선택됨)
+            })
+
+        })
+    </script>
+</body>
+
+</html>
